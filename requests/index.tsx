@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchArticles = () => {
   let data = JSON.stringify({
     query: `query {
-              user(username:"https://blog.peerlist.io/") {
+              user(username:"MichelleTanPY") {
                 photo
                 publication {
                   posts (page:0) {

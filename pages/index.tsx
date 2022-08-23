@@ -10,7 +10,7 @@ import { fetchArticles } from "../requests";
 export async function getServerSideProps() {
   try {
     const res = await fetchArticles();
-    // console.log("res?.data?.data?.user?.publications", res?.data?.data?.user);
+    console.log("res?.data", res?.data);
 
     let content = {
       userPhoto: res?.data?.data?.user?.photo || "",

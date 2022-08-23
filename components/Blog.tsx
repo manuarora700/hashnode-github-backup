@@ -1,9 +1,14 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import Link from "next/link";
 
 export const Blog = ({ blog }: any) => {
+  const [loading, setLoading] = useState(true);
+
+  function cn(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
   return (
     <div className="rounded-lg shadow-md bg-white overflow-hidden">
       <Link href={blog?.slug}>
@@ -14,6 +19,12 @@ export const Blog = ({ blog }: any) => {
               src={blog?.coverImage}
               layout="fill"
               objectFit="cover"
+              className={
+                loading
+                  ? "grayscale blur-2xl scale-110"
+                  : "grayscale-0 blur-0 scale-100"
+              }
+              onLoadingComplete={() => setLoading(false)}
             />
           </div>
           <div className="content p-4">
