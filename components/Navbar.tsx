@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 
 export const Navbar = ({ onClick }: any) => {
-  const [input, setInput] = useState<any>("yogini");
+  const [input, setInput] = useState<any>("");
 
   const handleClick = () => {
     onClick("search-click", input);

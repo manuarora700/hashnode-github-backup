@@ -13,7 +13,6 @@ import { showError, showSuccess } from "../util";
 const Home: NextPage = () => {
   // TODO: Bonus: useSWR Maybe?
   const [content, setContent] = useState<any>([]);
-  const [searchText, setSearchText] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [repos, setRepos] = useState([]);
