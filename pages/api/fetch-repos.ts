@@ -9,7 +9,7 @@ export default async function handler(req: any, res: any) {
     let response: any = await axios.get(API, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`,
+        Authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`,
       },
       params: {
         orderBy: "CREATED_AT",

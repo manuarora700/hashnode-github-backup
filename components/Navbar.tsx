@@ -19,6 +19,17 @@ export const Navbar = ({ onClick }: any) => {
         Hashnode Blog
       </h1>
       <div>
+        <a
+          href="https://github.com/manuarora700/posts-backup"
+          target="__blank"
+          className="text-gray-600 text-sm mr-8"
+        >
+          Take me to the{" "}
+          <span className="border border-dashed rounded-md text-gray-700 px-1 py-0.5">
+            backup
+          </span>{" "}
+          repo
+        </a>
         <input
           type="text"
           className="border border-gray-200 rounded-md text-sm px-2 py-1 mr-2 text-gray-600"

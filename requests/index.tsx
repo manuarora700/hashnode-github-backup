@@ -7,12 +7,14 @@ export const fetchArticles = (username: any) => {
                 photo
                 publication {
                   posts (page:0) {
+                    _id
                     title
                     slug
                     cuid
                     coverImage
                     dateAdded
                     brief
+                    contentMarkdown
                   }
                 }
               }

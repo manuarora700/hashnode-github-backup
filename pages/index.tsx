@@ -16,6 +16,7 @@ const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [repos, setRepos] = useState([]);
+  const [processing, setProcessing] = useState(false);
 
   const fetchRepos = async () => {
     // TODO: Fetch with a limit, get all repos.
@@ -75,6 +76,33 @@ const Home: NextPage = () => {
     setOpenModal(true);
   };
 
+  const createBackup = () => {
+    setProcessing(true);
+    const markdowns = content?.blogs?.map((el: any) => {
+      return {
+        _id: el?._id,
+        contentMarkdown: el?.contentMarkdown,
+        title: el?.title,
+      };
+    });
+
+    axios
+      .post("/api/backup", { markdowns })
+      .then((res) => {
+        console.log("res...", res);
+        console.log("res?.data?.error", res?.data?.error);
+        if (!res?.data?.error) {
+          showSuccess("Data backed up successfully!");
+          setProcessing(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        showError("Something went wrong, please try again!");
+        setProcessing(false);
+      });
+  };
+
   return (
     <>
       {/* {content?.blogs?.length > 0 && openModal ? (
@@ -84,12 +112,14 @@ const Home: NextPage = () => {
         <Navbar onClick={onClickHandler} />
 
         {content?.blogs?.length > 0 ? (
-          <button
-            onClick={fetchReposAndOpenModal}
-            className="border border-slate-500  rounded-md shadow-lg self-end px-4 py-2 mb-6 text-sm text-gray-700 hover:shadow-xl transition duration-200"
-          >
-            Backup on GitHub
-          </button>
+          <div className="flex flex-row space-x-2 items-center mb-6 ">
+            <button
+              onClick={createBackup}
+              className="border border-slate-500  rounded-md shadow-lg self-end px-4 py-2 text-sm text-gray-700 hover:shadow-xl transition duration-200"
+            >
+              {!processing ? "Backup on GitHub" : "Processing..."}
+            </button>
+          </div>
         ) : null}
         <BlogsLayout content={content} />
       </Layout>
