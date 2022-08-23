@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const fetchArticles = () => {
+export const fetchArticles = (username: any) => {
   let data = JSON.stringify({
     query: `query {
-              user(username:"MichelleTanPY") {
+              user(username:"${username}") {
                 photo
                 publication {
                   posts (page:0) {
