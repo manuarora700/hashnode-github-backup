@@ -4,13 +4,12 @@ import axios from "axios";
 
 export default async function handler(req: any, res: any) {
   try {
-    let accessToken = "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";
     let API = `https://api.github.com/users/manuarora700/repos?sort=updated`;
 
     let response: any = await axios.get(API, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: "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",
+        Authorization: `${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`,
       },
       params: {
         orderBy: "CREATED_AT",

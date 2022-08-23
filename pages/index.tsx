@@ -32,6 +32,7 @@ const Home: NextPage = () => {
     try {
       const res = await fetchArticles(username);
 
+      // TODO: Add the case where the user has no blogs but the account exists - eg: manuarora
       if (!res?.data?.data?.user?.publication) {
         showError("No posts found for the given username");
         setContent([]);
@@ -76,9 +77,9 @@ const Home: NextPage = () => {
 
   return (
     <>
-      {content?.blogs?.length > 0 && openModal ? (
+      {/* {content?.blogs?.length > 0 && openModal ? (
         <ReposModal repositories={repos} onClick={onClickHandler} />
-      ) : null}
+      ) : null} */}
       <Layout>
         <Navbar onClick={onClickHandler} />
 

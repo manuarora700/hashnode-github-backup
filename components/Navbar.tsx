@@ -7,6 +7,12 @@ export const Navbar = ({ onClick }: any) => {
   const handleClick = () => {
     onClick("search-click", input);
   };
+
+  const handleKeyDown = (e: any) => {
+    if (e.keyCode === 13) {
+      handleClick();
+    }
+  };
   return (
     <div className="flex flex-row items-center justify-between mb-20">
       <h1 className="font-bold text-lg bg-gradient-to-r from-black to-slate-700 bg-clip-text text-transparent inline-block mr-4">
@@ -19,6 +25,7 @@ export const Navbar = ({ onClick }: any) => {
           placeholder="Search by username"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => handleKeyDown(e)}
         />
         <button
           className="text-xs bg-gray-700 text-white focus:outline-none px-2 py-2 rounded-md shadow-xl"
