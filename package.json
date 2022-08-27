@@ -7,17 +7,22 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "buffer": "^6.0.3",
+    "js-sha1": "^0.6.0",
     "moment": "^2.29.4",
     "next": "latest",
+    "octokit": "^2.0.7",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hot-toast": "^2.3.0",
+    "sha1": "^1.1.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
+    "@types/sha1": "^1.1.3",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.2",
