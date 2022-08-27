@@ -14,8 +14,6 @@ const Home: NextPage = () => {
   // TODO: Bonus: useSWR Maybe?
   const [content, setContent] = useState<any>([]);
   const [loading, setLoading] = useState(true);
-  const [openModal, setOpenModal] = useState(false);
-  const [repos, setRepos] = useState([]);
   const [processing, setProcessing] = useState(false);
 
   const fetchRepos = async () => {
@@ -60,20 +58,11 @@ const Home: NextPage = () => {
         fetchData(value);
         break;
       }
-      case "close-modal": {
-        setOpenModal(false);
-        break;
-      }
+
       default: {
         console.warn("case not handled!", action, value);
       }
     }
-  };
-  const fetchReposAndOpenModal = async () => {
-    setLoading(true);
-    let repos = await fetchRepos();
-    setRepos(repos);
-    setOpenModal(true);
   };
 
   const createBackup = () => {
@@ -105,9 +94,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      {/* {content?.blogs?.length > 0 && openModal ? (
-        <ReposModal repositories={repos} onClick={onClickHandler} />
-      ) : null} */}
       <Layout>
         <Navbar onClick={onClickHandler} />
 

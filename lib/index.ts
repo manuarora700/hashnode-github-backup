@@ -46,3 +46,33 @@ export const getRepo = async (fileName: any) => {
       return null;
     });
 };
+
+export interface GithubContents {
+  name: string;
+  path: string;
+  sha: string;
+  size: number;
+  url: string;
+  html_url: string;
+  git_url: string;
+  download_url: string;
+  type: string;
+  _links: {
+    self: string;
+    git: string;
+    html: string;
+  };
+}
+
+export const getContentsOfRepo = async (
+  owner: string,
+  repo: string
+): Promise<GithubContents[] | null> => {
+  return axios
+    .get(`https://api.github.com/repos/${owner}/${repo}/contents`)
+    .then((response) => response?.data as GithubContents[])
+    .catch(function (error) {
+      console.log("Error in getRepo...", error?.message);
+      return null;
+    });
+};
