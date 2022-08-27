@@ -1,4 +1,4 @@
-import { Measure } from "@/util/Measure";
+import { Measure } from "@/util/measure";
 import { Octokit } from "octokit";
 import { GitFile, LocalFile } from "../interfaces";
 import sha1 from "sha1";

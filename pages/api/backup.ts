@@ -1,18 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import axios from "axios";
 import moment from "moment";
-import {
-  getContentsOfRepo,
-  getRepo,
-  updateRepoWithMarkdown,
-} from "@/lib/index";
-import sha1 from "sha1";
-import { Blob } from "buffer";
-import { Octokit, App } from "octokit";
-import { performance } from "perf_hooks";
-import { GitFile, GithubContents, LocalFile } from "@/interfaces/index";
-import { Measure } from "@/util/Measure";
+import { getContentsOfRepo } from "@/lib/index";
+import { GithubContents, LocalFile } from "@/interfaces/index";
+
 import { GitUtils } from "@/lib/gitUtils";
 
 export default async function handler(req: any, res: any) {
