@@ -69,12 +69,6 @@ const Home: NextPage = () => {
       }
     }
   };
-  const fetchReposAndOpenModal = async () => {
-    setLoading(true);
-    let repos = await fetchRepos();
-    setRepos(repos);
-    setOpenModal(true);
-  };
 
   const createBackup = () => {
     setProcessing(true);
@@ -105,9 +99,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      {/* {content?.blogs?.length > 0 && openModal ? (
-        <ReposModal repositories={repos} onClick={onClickHandler} />
-      ) : null} */}
       <Layout>
         <Navbar onClick={onClickHandler} />
 
