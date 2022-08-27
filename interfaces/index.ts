@@ -26,3 +26,18 @@ export interface Meta {
   description?: string;
   children?: any;
 }
+
+export interface GitFile {
+  path?: string | undefined;
+  mode?: "100644" | "100755" | "040000" | "160000" | "120000" | undefined;
+  type?: "blob" | "tree" | "commit" | undefined;
+  sha?: string | null | undefined;
+  content?: string | undefined;
+}
+
+export interface LocalFile {
+  contents: string;
+  mode?: "100644" | "100755" | "040000" | "160000" | "120000" | undefined;
+  type?: "blob" | "tree" | "commit" | undefined;
+  fileName: string;
+}
