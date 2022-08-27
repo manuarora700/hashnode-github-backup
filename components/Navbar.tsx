@@ -20,11 +20,14 @@ export const Navbar = () => {
           </span>{" "}
           repo
         </a>
-        <Link href="/docs">
-          <a className="text-sm px-4 py-2 rounded-2xl border-2 text-gray-600 hover:shadow-[3px_3px_0px_0px_#cbd5e1] transition duration-200">
-            Documentation
-          </a>
-        </Link>
+
+        <a
+          href="https://github.com/manuarora700/hashnode-github-backup"
+          target="__blank"
+          className="text-sm px-4 py-2 rounded-2xl border-2 text-gray-600 hover:shadow-[3px_3px_0px_0px_#cbd5e1] transition duration-200"
+        >
+          Documentation / Source Code
+        </a>
       </div>
     </div>
   );
