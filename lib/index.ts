@@ -1,4 +1,5 @@
 import axios from "axios";
+import { GithubContents, Markdown } from "@/interfaces/index";
 
 export const getUserRepo = (userrepo: any, username: any) => {
   return fetch(`https://api.github.com/users/${username}/repos`)
@@ -47,23 +48,6 @@ export const getRepo = async (fileName: any) => {
     });
 };
 
-export interface GithubContents {
-  name: string;
-  path: string;
-  sha: string;
-  size: number;
-  url: string;
-  html_url: string;
-  git_url: string;
-  download_url: string;
-  type: string;
-  _links: {
-    self: string;
-    git: string;
-    html: string;
-  };
-}
-
 export const getContentsOfRepo = async (
   owner: string,
   repo: string
@@ -75,4 +59,8 @@ export const getContentsOfRepo = async (
       console.log("Error in getRepo...", error?.message);
       return null;
     });
+};
+
+export const createBackupOnGitHub = (markdowns: Markdown[]) => {
+  return axios.post("/api/backup", { markdowns });
 };

@@ -1,7 +1,8 @@
 import Head from "next/head";
 import React from "react";
+import { Meta } from "../interfaces";
 
-export const Layout = ({ children, ...customMeta }: any) => {
+export const Layout = ({ children, ...customMeta }: Meta) => {
   const meta = {
     title: "Hashnode GitHub Backup Assignment",
     description: "Assignment solution by Manu Arora",

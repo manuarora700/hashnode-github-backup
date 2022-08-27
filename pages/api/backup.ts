@@ -5,13 +5,13 @@ import moment from "moment";
 import {
   getContentsOfRepo,
   getRepo,
-  GithubContents,
   updateRepoWithMarkdown,
-} from "../../lib";
+} from "@/lib/index";
 import sha1 from "sha1";
 import { Blob } from "buffer";
 import { Octokit, App } from "octokit";
 import { performance } from "perf_hooks";
+import { GithubContents } from "@/interfaces/index";
 
 interface GitFile {
   path?: string | undefined;
