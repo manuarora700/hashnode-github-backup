@@ -14,8 +14,6 @@ const Home: NextPage = () => {
   // TODO: Bonus: useSWR Maybe?
   const [content, setContent] = useState<any>([]);
   const [loading, setLoading] = useState(true);
-  const [openModal, setOpenModal] = useState(false);
-  const [repos, setRepos] = useState([]);
   const [processing, setProcessing] = useState(false);
 
   const fetchRepos = async () => {
@@ -60,10 +58,7 @@ const Home: NextPage = () => {
         fetchData(value);
         break;
       }
-      case "close-modal": {
-        setOpenModal(false);
-        break;
-      }
+
       default: {
         console.warn("case not handled!", action, value);
       }
